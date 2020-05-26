@@ -1,0 +1,53 @@
+//declaramos los valores para los puertos de los led's
+
+const int rojo1=2, rojo2=3, amarillo=4, verde=5;
+
+void setup()
+{
+  pinMode(rojo1, OUTPUT);
+  pinMode(rojo2, OUTPUT);
+  pinMode(amarillo, OUTPUT);
+  pinMode(verde, OUTPUT);
+}
+
+void loop()
+{
+  //COLOR ROJO
+  digitalWrite(rojo1, HIGH);
+  digitalWrite(rojo2, HIGH);
+  delay(30000); // Wait for 1000 millisecond(s)
+  digitalWrite(rojo1, LOW);
+  digitalWrite(rojo2, LOW);
+  delay(500);
+  
+  //COLOR VERDE
+  digitalWrite(verde, HIGH);
+  delay(40000); // Wait for 1000 millisecond(s)
+  
+  //Parpadeo del verde para cambiar a amarillo
+  digitalWrite(verde, LOW);
+  delay(500);
+  digitalWrite(verde, HIGH);
+  delay(500);
+  digitalWrite(verde, LOW);
+  delay(500);
+  digitalWrite(verde, HIGH);
+  delay(500);
+  digitalWrite(verde, LOW);
+  delay(500);
+  digitalWrite(verde, HIGH);
+  delay(500);
+  digitalWrite(verde, LOW);
+  delay(500);
+  digitalWrite(verde, HIGH);
+  delay(500);
+  digitalWrite(verde, LOW);
+  delay(500);
+  
+  
+  //COLOR AMARILLO
+  digitalWrite(amarillo, HIGH);
+  delay(4000); // Wait for 1000 millisecond(s)
+  digitalWrite(amarillo, LOW);
+  delay(500);
+}
