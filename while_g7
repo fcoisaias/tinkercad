@@ -1,0 +1,35 @@
+void setup()
+{
+  //habilitar los led's 
+  for (int i=2;i<=5;i++){
+    pinMode(i, OUTPUT);
+  }//llave del for de los led's
+  
+  //habilitar el botón
+  pinMode(6,INPUT_PULLUP);
+  pinMode(7,INPUT_PULLUP);
+}
+
+void loop()
+{
+  //declarar una variable para saber si el botón está aplastado
+  int aplastado,noescierto;
+  
+  aplastado=digitalRead(6);
+  noescierto=digitalRead(7);
+  
+  while(aplastado==LOW && noescierto==LOW){
+ 
+  //RUTINA DE LOS LED'S
+  for (int i=2;i<=5;i++){
+  digitalWrite(i, HIGH);
+  delay(1000); // Wait for 1000 millisecond(s)
+  digitalWrite(i, LOW);
+  delay(1000); // Wait for 1000 millisecond(s)
+  }//cierra el for de la rutina de los led's
+   aplastado=digitalRead(6);
+   noescierto=digitalRead(7); 
+  }
+  
+  
+}//cierra el void loop
