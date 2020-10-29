@@ -1,0 +1,74 @@
+void setup()
+{
+  Serial.begin(9600);
+  
+  //declarar los led's
+  for(int leds=2;leds<=4;leds++){
+    pinMode(leds,OUTPUT);//write
+    }//CIERRA LOS LEDS
+  
+  //declarar el botón
+  pinMode(5,INPUT_PULLUP);//read
+  
+}//cierra el void setup
+
+void loop()
+{
+  int boton,numero;
+  
+  boton=digitalRead(5);//lee el estado del botón LOW o HIGH
+  
+  //¿aplastaste el botón?
+  if(boton==LOW){
+    numero=random(1,3);
+    Serial.println(numero);
+  }//cierra el if del boton
+  
+  //secuencia 1
+  if(numero==1){
+    for(int repetir=1;repetir<=4;repetir++){
+      digitalWrite(2,HIGH);
+      digitalWrite(4,HIGH);
+      delay(1000);//esperar 1 segundo
+      digitalWrite(2,LOW);
+      digitalWrite(4,LOW);
+      digitalWrite(3,HIGH);
+      delay(1000);
+      
+    }//llave de repetir
+  }//llave del if del 1
+  
+  //secuencia 2
+  if(numero==2){
+    for(int repetir=1;repetir<=4;repetir++){
+      digitalWrite(3,HIGH);//encender amarillo
+      delay(1000);
+      digitalWrite(3,LOW);//apaga el amarillo
+      digitalWrite(2,HIGH); //prender el azul
+      delay(1000);
+      digitalWrite(2,LOW);//apaga el azul
+      digitalWrite(3,HIGH);//encender amarillo
+      delay(1000);
+      digitalWrite(3,LOW);//apaga el amarillo
+      digitalWrite(4,HIGH); //prender el verde
+      delay(1000);
+      digitalWrite(4,LOW);//apaga el verde
+      digitalWrite(3,HIGH); //prender el amarillo
+      delay(1000);
+    }//llave de repetir
+  }//llave del if del 2
+  
+  //secuencia 3
+  
+  if(numero==3){
+  	for(int repetir=1;repetir<=4;repetir++){
+      // usar for para prender y apagar
+      for(int a=2;a<=4;a++){
+        digitalWrite(a,HIGH);
+        delay(1000);
+        digitalWrite(a,LOW);
+        delay(1000);
+      }//llave del for de a
+      
+    }//llave de repetir
+  }//llave del if del 3
